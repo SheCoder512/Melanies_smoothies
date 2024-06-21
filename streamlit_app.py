@@ -3,7 +3,7 @@ import streamlit as st
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
-st.title("🥤 Customize Your Smoothie 🥤")
+streamlit.title("🥤 Customize Your Smoothie 🥤")
 st.write(
     """Choose the fruits you want in your custom Smoothie!
     """)
@@ -45,3 +45,8 @@ if ingredients_list:
     
 	   
         st.success('Your Smoothie is ordered!', icon="✅")
+
+# new section to display fruityvice nutrition information
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
